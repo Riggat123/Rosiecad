@@ -4,7 +4,286 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rosie Caffe</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f9;
+            color: #333;
+            font-size: 16px;
+        }
+
+        /* Header */
+        .header {
+            background-color: rgba(76, 175, 80, 0.8);
+            color: white;
+            padding: 20px 40px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header .logo h1 {
+            font-size: 3em;
+            margin-bottom: 5px;
+        }
+
+        .header .logo p {
+            font-size: 1.2em;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 10px 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 150px 20px;
+            color: white;
+            background: url('images/cafe-background.jpg') no-repeat center center/cover;
+        }
+
+        .hero-content {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 50px;
+            border-radius: 10px;
+        }
+
+        .hero h2 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Menu Section */
+        .menu {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .menu h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #4CAF50;
+        }
+
+        .menu-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .menu-category {
+            flex-basis: 30%;
+            margin: 20px;
+        }
+
+        .menu-category h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .menu-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 15px;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .menu-item h4 {
+            margin-top: 10px;
+            font-size: 1.5em;
+        }
+
+        .menu-item p {
+            margin: 10px 0;
+        }
+
+        .menu-item span {
+            color: #4CAF50;
+            font-size: 1.2em;
+        }
+
+        /* About Us Section */
+        .about {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #fff;
+        }
+
+        .about h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #f9f9f9;
+        }
+
+        .testimonials h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+
+        .testimonial-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .testimonial-item {
+            flex-basis: 30%;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-item p {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-item span {
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #fff;
+        }
+
+        .contact h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+
+        .contact form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: grid;
+            gap: 15px;
+            text-align: left;
+        }
+
+        .contact label {
+            font-weight: bold;
+        }
+
+        .contact input, .contact textarea {
+            padding: 10px;
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        .contact button {
+            padding: 12px 20px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1.2em;
+            border-radius: 8px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .contact button:hover {
+            background-color: #45a049;
+        }
+
+        /* Footer Section */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        .footer .social-media {
+            margin-top: 10px;
+        }
+
+        .footer .social-icon {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .footer .social-icon:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <!-- Header Section -->
@@ -52,7 +331,6 @@
                     <p>Smooth espresso with steamed milk</p>
                     <span>$3.99</span>
                 </div>
-                <!-- Add more coffee items here -->
             </div>
 
             <!-- Pastries Section -->
@@ -61,30 +339,40 @@
                 <div class="menu-item">
                     <img src="images/chocolate-cake.jpg" alt="Chocolate Cake">
                     <h4>Chocolate Cake</h4>
-                    <p>Rich chocolate flavor</p>
+                    <p>Deliciously rich chocolate cake</p>
                     <span>$4.50</span>
                 </div>
-                <!-- Add more pastry items here -->
+                <div class="menu-item">
+                    <img src="images/croissant.jpg" alt="Croissant">
+                    <h4>Croissant</h4>
+                    <p>Fresh and flaky croissant</p>
+                    <span>$2.50</span>
+                </div>
             </div>
 
             <!-- Cold Beverages Section -->
             <div class="menu-category">
                 <h3>Cold Beverages</h3>
                 <div class="menu-item">
-                    <img src="images/iced-latte.jpg" alt="Iced Latte">
-                    <h4>Iced Latte</h4>
-                    <p>Chilled espresso with milk</p>
-                    <span>$3.99</span>
+                    <img src="images/iced-coffee.jpg" alt="Iced Coffee">
+                    <h4>Iced Coffee</h4>
+                    <p>Chilled coffee served with ice</p>
+                    <span>$3.50</span>
                 </div>
-                <!-- Add more cold beverages here -->
+                <div class="menu-item">
+                    <img src="images/smoothie.jpg" alt="Smoothie">
+                    <h4>Fruit Smoothie</h4>
+                    <p>Refreshing blend of fruits</p>
+                    <span>$4.00</span>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- About Us Section -->
     <section id="about" class="about">
-        <h2>About Rosie Caffe</h2>
-        <p>Rosie Caffe was founded in 2020 with the mission to bring high-quality coffee and delicious pastries to our local community. Our goal is to provide a warm, welcoming space for everyone, from coffee aficionados to those looking for a quiet place to relax.</p>
+        <h2>About Us</h2>
+        <p>At Rosie Caffe, we’re passionate about creating memorable experiences for coffee lovers. With locally sourced beans and freshly baked pastries, we provide a comforting atmosphere to enjoy every sip and bite.</p>
     </section>
 
     <!-- Testimonials Section -->
@@ -92,37 +380,40 @@
         <h2>What Our Customers Say</h2>
         <div class="testimonial-container">
             <div class="testimonial-item">
-                <p>"The best coffee I've ever had! The atmosphere is so cozy, I could spend all day here."</p>
-                <span>- Sarah T.</span>
+                <p>"The best coffee I’ve ever had! Rosie Caffe is my new favorite spot."</p>
+                <span>Jane D.</span>
             </div>
             <div class="testimonial-item">
-                <p>"I love their pastries! The chocolate cake is a must-try!"</p>
-                <span>- John D.</span>
+                <p>"A cozy place with great ambiance and delicious pastries. Highly recommend!"</p>
+                <span>John S.</span>
             </div>
-            <!-- Add more testimonials here -->
+            <div class="testimonial-item">
+                <p>"I can’t get enough of their lattes. Always the perfect temperature and taste."</p>
+                <span>Sarah K.</span>
+            </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <h2>Contact Us</h2>
-        <form action="#" method="POST">
-            <label for="name">Your Name:</label>
-            <input type="text" id="name" name="name" required>
+        <form>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
 
-            <label for="email">Your Email:</label>
-            <input type="email" id="email" name="email" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
 
-            <label for="message">Your Message:</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
 
-            <button type="submit" class="btn">Send Message</button>
+            <button type="submit">Send Message</button>
         </form>
     </section>
 
     <!-- Footer Section -->
     <footer class="footer">
-        <p>&copy; 2024 Rosie Caffe. All Rights Reserved.</p>
+        <p>&copy; 2024 Rosie Caffe | All Rights Reserved</p>
         <div class="social-media">
             <a href="#" class="social-icon">Facebook</a>
             <a href="#" class="social-icon">Instagram</a>
